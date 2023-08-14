@@ -1,0 +1,16 @@
+version: '3.0'
+services:
+  thingsboard-rest-api-handler:
+    build: .
+    ports:
+    - "6000:5000"
+    environment:
+    - TZ=Asia/Ho_Chi_Minh     
+    networks:
+      - thingsboard-rest-api-handler
+    volumes:
+      - ".:/app"
+
+networks:
+  thingsboard-rest-api-handler:
+    driver: bridge
