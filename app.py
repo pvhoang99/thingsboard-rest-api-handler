@@ -7,14 +7,22 @@ app = Flask(__name__)
 handler = Handler()
 
 
-@app.post("/api/<deviceName>")
+@app.post("/api/<deviceName>/inactivity")
 def handle(deviceName):
-
-    print("deviceName: %s", deviceName)
+    print("inactivity deviceName: %s", deviceName)
 
     container_name = detect_container_name(deviceName)
     if container_name is not None:
         handler.push_data(container_name)
+
+    return jsonify({
+        "message": "ok"
+    })
+
+
+@app.post("/api/<deviceName>/activity")
+def handle(deviceName):
+    print("activity deviceName: %s", deviceName)
 
     return jsonify({
         "message": "ok"
