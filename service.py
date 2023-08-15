@@ -1,13 +1,12 @@
-from queue import Queue
-import time
-import threading
 import subprocess
-import concurrent.futures
+import threading
+import time
+from queue import Queue
 
 
 def trigger(deviceName):
     params = [str(deviceName)]
-    subprocess.run(['bash', 'restart.sh'] + params)
+    subprocess.Popen(['bash', 'restart.sh'] + params)
 
 
 class Handler:
@@ -21,12 +20,11 @@ class Handler:
             self.queue.put(data)
 
     def read_data(self):
-        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
-            while True:
+        while True:
 
-                if self.queue.empty():
-                    time.sleep(60)
-                    continue
+            if self.queue.empty():
+                time.sleep(60)
+                continue
 
-                deviceName = self.queue.get()
-                executor.submit(trigger, deviceName)
+            deviceName = self.queue.get()
+            trigger(deviceName)
