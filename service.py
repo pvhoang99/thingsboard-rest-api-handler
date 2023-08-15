@@ -21,8 +21,8 @@ class Handler:
             self.queue.put(data)
 
     def read_data(self):
-        while True:
-            with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+            while True:
 
                 if self.queue.empty():
                     time.sleep(60)
