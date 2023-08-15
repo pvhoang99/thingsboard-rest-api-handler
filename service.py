@@ -17,7 +17,7 @@ class Handler:
     def read_data(self):
         while True:
             if self.queue.empty():
-                time.sleep(10)
+                time.sleep(60)
                 continue
 
             deviceName = self.queue.get()
