@@ -1,2 +1,2 @@
-/usr/local/bin/docker-compose -f /usr/local/bin/docker-compose-ns3-valve down tb-gateway-ns3-valve-1 & wait
-/usr/local/bin/docker-compose -f /usr/local/bin/docker-compose-ns3-valve up -d tb-gateway-ns3-valve-1 & wait
+docker-compose -f /usr/local/bin/docker-compose-ns3-valve down tb-gateway-ns3-valve-1 & wait
+docker-compose -f /usr/local/bin/docker-compose-ns3-valve up -d tb-gateway-ns3-valve-1 & wait
