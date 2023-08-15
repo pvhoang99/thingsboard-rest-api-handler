@@ -9,6 +9,9 @@ handler = Handler()
 
 @app.post("/api/<deviceName>")
 def handle(deviceName):
+
+    print("deviceName: %s", deviceName)
+
     container_name = detect_container_name(deviceName)
     if container_name is not None:
         handler.push_data(container_name)
