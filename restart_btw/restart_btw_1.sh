@@ -1,0 +1,2 @@
+/usr/local/bin/docker-compose -f /root/thingsboard-gateway-final/docker/docker-compose-btw.yml down tb-gateway-btw-1 & wait
+/usr/local/bin/docker-compose -f /root/thingsboard-gateway-final/docker/docker-compose-btw.yml up -d tb-gateway-btw-1 & wait
