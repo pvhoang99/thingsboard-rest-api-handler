@@ -8,7 +8,7 @@ handler = Handler()
 
 
 @app.post("/api/<deviceName>/inactivity")
-def handle(deviceName):
+def handle_inactivity(deviceName):
     print("inactivity deviceName: %s", deviceName)
 
     container_name = detect_container_name(deviceName)
@@ -21,7 +21,7 @@ def handle(deviceName):
 
 
 @app.post("/api/<deviceName>/activity")
-def handle(deviceName):
+def handle_activity(deviceName):
     print("activity deviceName: %s", deviceName)
 
     return jsonify({
